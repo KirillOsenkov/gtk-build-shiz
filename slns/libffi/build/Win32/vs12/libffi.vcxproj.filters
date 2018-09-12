@@ -30,13 +30,9 @@
   </ItemGroup>
   <ItemGroup>
     <MASM Include="$(IntDir)win32.asm" />
-    <MASM Include="$(IntDir)win64.asm" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\x86\win32.S">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\..\..\src\x86\win64.S">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
