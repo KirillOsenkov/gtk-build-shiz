@@ -3,3 +3,8 @@ src/*.7z
 src/*.gz
 src/*.bz2
 *~
+.fake
+.vs
+build
+install
+tools
