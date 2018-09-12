@@ -1,5 +1,5 @@
 #I "tools/FAKE/tools"
-#I "tools/FSharp.Data/lib/net40"
+#I "tools/FSharp.Data/lib/net45"
 #r "FakeLib.dll"
 #r "FSharp.Data"
 
@@ -212,7 +212,7 @@ Target "gettext-runtime" <| fun _ ->
   Path.Combine(buildDir(), "gettext-runtime-0.18")
   |> from (fun () ->
         patch "gettext-runtime\\gettext-runtime.patch"
-        patch "gettext-runtime\\libtool-style-libintl-dll.patch"
+        //patch "gettext-runtime\\libtool-style-libintl-dll.patch"
 
         "-G \"NMake Makefiles\" \"-DCMAKE_INSTALL_PREFIX=..\..\..\install\gtk\Win32\" -DCMAKE_BUILD_TYPE=Debug"
         |> sh "cmake"
