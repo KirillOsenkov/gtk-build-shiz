@@ -48,8 +48,10 @@ let filenameFromUrl (url:string) =
 
 let from (action: unit -> unit) (path: string) =
     pushd path
-    action ()
-    popd()
+    try
+        action ()
+    finally
+        popd()
 
 let download (url: string) =
     let client = new WebClient()
@@ -113,6 +115,8 @@ let patch filename =
   sprintf "-p1 -i \"%s\"" (Path.Combine(patchDir(), filename))
   |> sh "C:\\msys32\\usr\\bin\\patch.exe"
 
+let dos2unix =
+  sh (Path.Combine(originDir, "tools", "dos2unix.exe"))
 
 // Targets
 // --------------------------------------------------------
@@ -220,7 +224,8 @@ Target "gettext-runtime" <| fun _ ->
   Path.Combine(buildDir(), "gettext-runtime-0.18")
   |> from (fun () ->
         patch "gettext-runtime\\gettext-runtime.patch"
-        //patch "gettext-runtime\\libtool-style-libintl-dll.patch"
+        dos2unix "gettext-runtime\\intl\\CMakeLists.txt"
+        patch "gettext-runtime\\libtool-style-libintl-dll.patch"
 
         "-G \"NMake Makefiles\" \"-DCMAKE_INSTALL_PREFIX=..\..\..\install\gtk\Win32\" -DCMAKE_BUILD_TYPE=Debug"
         |> sh "cmake"
