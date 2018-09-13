@@ -258,7 +258,7 @@ Target "glib" <| fun _ ->
                       Properties = [ "Platform", "Win32"
                                      "Configuration", "Release"
                       ]
-                      BinaryLoggers = ["glib.binlog"]
+                      BinaryLoggers = Some(["glib.binlog"])
     }
   ) |> ignore
 
