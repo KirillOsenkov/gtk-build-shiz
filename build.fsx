@@ -88,7 +88,7 @@ let extract (path:string) =
           |> do7z
           |> ignore
       | x when Regex.Match(x, "\.tar\.xz$").Success ->
-          sprintf "x \"%s\" -o\"%s\"" file buildDirectory
+          sprintf "x \"%s\" -aoa -o\"%s\"" file buildDirectory
           |> do7z
           |> ignore
           sprintf "xf \"%s\" --directory \"%s\"" (mingwify(path)) (mingwify(buildDirectory))
