@@ -8,3 +8,4 @@ src/*.bz2
 build
 install
 tools
+*.binlog
