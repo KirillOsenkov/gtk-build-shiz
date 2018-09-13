@@ -246,6 +246,7 @@ Target "glib" <| fun _ ->
   |> from (fun () ->
     patch "glib\\glib-if_nametoindex.patch"
     patch "glib\\glib-package-installation-directory.patch"
+    patch "glib\\glib-remove-wgetmainargs.patch"
   )
 
   Directory.GetFiles(Path.Combine("slns", "glib", "build", "win32", "vs12"), "*.*")
@@ -257,6 +258,7 @@ Target "glib" <| fun _ ->
                       Properties = [ "Platform", "Win32"
                                      "Configuration", "Release"
                       ]
+                      BinaryLoggers = ["glib.binlog"]
     }
   ) |> ignore
 
