@@ -14,7 +14,7 @@ open Fake.StringHelper
 open Fake.Git
 open FSharp.Data
 
-let originDir = FileSystemHelper.currentDirectory
+let originDir = __SOURCE_DIRECTORY__
 
 // Some directories
 // ------------------------------------------------------
