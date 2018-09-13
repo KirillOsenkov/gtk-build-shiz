@@ -70,6 +70,7 @@ let do7z =
 
 let extract (path:string) =
   let file = Path.Combine(srcDir(), path)
+  let buildDirectory = buildDir()
 
   Path.Combine("patches", "stack.props") |> CopyFile (buildDir())
 
@@ -83,6 +84,13 @@ let extract (path:string) =
       | x when Regex.Match(x, "\.7z$").Success ->
           sprintf "x \"%s\" -o.\\build\\win32" file
           |> do7z
+          |> ignore
+      | x when Regex.Match(x, "\.tar\.xz$").Success ->
+          sprintf "x \"%s\" -o\"%s\"" file buildDirectory
+          |> do7z
+          |> ignore
+          sprintf "xf \"%s\" --directory \"%s\"" (mingwify(path)) (mingwify(buildDirectory))
+          |> sh "tar"
           |> ignore
       | x when Regex.Match(x, "\.tar\.[gx]z$").Success || Regex.Match(x, "\.tar\.bz2$").Success ->
           buildDir()
