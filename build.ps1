@@ -8,4 +8,4 @@ if (Test-Path tools\FAKE\tools\FAKE.exe) {
 
 $env:Path = "C:\msys32\usr\bin;$($env:Path)";
 
-.\tools\FAKE\tools\FAKE.exe
+.\tools\FAKE\tools\FAKE.exe -pd
