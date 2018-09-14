@@ -22,6 +22,7 @@
     <ProjectGuid>{B3B6558A-01C8-4C72-9BDE-84ABB1AE67DF}</ProjectGuid>
     <RootNamespace>gailutil</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

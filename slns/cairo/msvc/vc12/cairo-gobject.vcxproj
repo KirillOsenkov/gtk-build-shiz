@@ -14,6 +14,7 @@
     <ProjectGuid>{E6933C13-F3FC-4D92-80BF-F9253F25AD77}</ProjectGuid>
     <RootNamespace>cairogobject</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
