@@ -5,7 +5,8 @@ src/*.bz2
 *~
 .fake
 .vs
-build
+/build
 install
 tools
 *.binlog
+*.ProjectImports.zip
