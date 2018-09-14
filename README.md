@@ -23,6 +23,11 @@ foreach {
 popd
 ```
 
+### msys ###
+
+Download http://downloads.sourceforge.net/mingw/MSYS-1.0.11.exe and install to:
+`C:\msys32\usr`
+
 ### 7-Zip ###
 
 You also need to install 7-Zip. Get it here: http://www.7-zip.org/download.html
@@ -35,4 +40,6 @@ Install CMake. It's available here: https://cmake.org/download/
 Run the build
 -------------
 
-.\build.ps1
+`.\build.ps1`
+
+(or `powershell -File build.ps1` from command prompt if not using PowerShell)
