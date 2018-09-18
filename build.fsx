@@ -498,6 +498,7 @@ Target "gtk" <| fun _ ->
                       Properties = ["Platform", "Win32"
                                     "Configuration", buildConfiguration
                       ]
+                      BinaryLoggers = Some(["gtk+.binlog"])
     }
   )
 
