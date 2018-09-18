@@ -15,6 +15,7 @@ open Fake.Git
 open FSharp.Data
 
 let originDir = __SOURCE_DIRECTORY__
+let buildConfiguration = "Release"
 
 // Some directories
 // ------------------------------------------------------
@@ -256,7 +257,7 @@ Target "glib" <| fun _ ->
   |> MSBuildHelper.build (fun parameters ->
     { parameters with Targets = ["Build"]
                       Properties = [ "Platform", "Win32"
-                                     "Configuration", "Release"
+                                     "Configuration", buildConfiguration
                       ]
                       BinaryLoggers = Some(["glib.binlog"])
     }
@@ -495,7 +496,7 @@ Target "gtk" <| fun _ ->
   Path.Combine(slnDir, "gtk+.sln") |> MSBuildHelper.build (fun parameters ->
     { parameters with Targets = ["Build"]
                       Properties = ["Platform", "Win32"
-                                    "Configuration", "Release"
+                                    "Configuration", buildConfiguration
                       ]
     }
   )
